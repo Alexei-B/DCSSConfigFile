@@ -53,7 +53,7 @@ autoinscribe += staff of energy:@w1
 :   local you_are_vampire = string.find(you.race(), "Vampire")
 :   local you_are_bloodless = you.hunger_name() == "bloodless"
 :   local you_are_ghoul = string.find(you.race(), "Ghoul")
-:	  local you_are_bloodless = you.hunger_name() == "bloodless"
+:      local you_are_bloodless = you.hunger_name() == "bloodless"
 :   local you_do_not_eat = string.find(you.race(), "Spriggan") or you_are_mummy
 :   local lichform = string.find(you.transform(), "lich")
 :   local bladehands = string.find(you.transform(), "blade")
@@ -108,9 +108,6 @@ autoinscribe += staff of energy:@w1
 :     elseif should_sublimate and not (you_are_vampire or lichform) then
 :       crawl.mpr("<lightcyan>Autocasting Sublimation of Blood.</lightcyan>")
 :       sendkeys('zm')
-:     elseif should_channel_mp and you_are_sif and (you.piety_rank() > 0) then
-:       crawl.mpr("<lightcyan>Autochanneling using Sif.</lightcyan>")
-:       sendkeys('aa')
 :     elseif should_regen_hp and can_cast_regen then
 :       crawl.mpr("<green>Autocasting Regen.</green>")
 :       --This assumes casting regen is bound to zr
@@ -166,9 +163,9 @@ autoinscribe += staff of energy:@w1
 :       if you_are_bloodless and have_potion_of_blood then
 :         crawl.mpr("<cyan>Autoquaffing potion of blood.</cyan>")
 :         sendkeys('q1')
-:				else
-:			    rest()
-:				end
+:                else
+:                rest()
+:                end
 :     elseif you_are_yred and (you.piety_rank() >= 3) and (item_in_view("corpse") or item_in_view("skeleton") or on_corpses()) and not recently_mass_animated() then
 :       crawl.mpr("<cyan>Autocasting Mass Animate Remains.</cyan>")
 :       sendkeys('aa')
@@ -204,8 +201,8 @@ autoinscribe += staff of energy:@w1
     local you_are_mummy = string.find(you.race(), "Mummy")
     local you_are_deep_dwarf = string.find(you.race(), "Deep Dwarf")
     return (mp < (max_mp*0.50) or ((max_mp-mp) > 20)
-						or ((hp < (max_hp*0.80)) or ((max_hp-hp) > 30) 
-								and not you_are_deep_dwarf)
+                        or ((hp < (max_hp*0.80)) or ((max_hp-hp) > 30)
+                                and not you_are_deep_dwarf)
             or you.slowed()
             or you.poisoned()
             or you.confused()
@@ -283,7 +280,7 @@ autoinscribe += staff of energy:@w1
   function can_not_bottle()
     return string.find(crawl.messages(10), escape("There isn't anything to bottle here"))
   end
-  
+
   function recently_mass_animated()
     return string.find(crawl.messages(10), escape("Autocasting Mass Animate Remains"))
   end
@@ -345,7 +342,7 @@ autoinscribe += staff of energy:@w1
     end
     return false
   end
-	
+
   function weapon_in_inventory()
     for it in inventory() do
       if string.find(it.class(true), "weapon") then
@@ -377,12 +374,12 @@ autoinscribe += staff of energy:@w1
   end
 
   function you_worship_sacrifice_god()
-    return string.find(you.god(), "Trog") 
-		    --or string.find(you.god(), "Oka")
-        --or string.find(you.god(), "Makhleb")  
-				or string.find(you.god(), "Beogh")
-        or string.find(you.god(), "Lugonu") 
-				--or string.find(you.god(), "Nemelex")
+    return string.find(you.god(), "Trog")
+            --or string.find(you.god(), "Oka")
+        --or string.find(you.god(), "Makhleb")
+                or string.find(you.god(), "Beogh")
+        or string.find(you.god(), "Lugonu")
+                --or string.find(you.god(), "Nemelex")
   end
 
   function on_corpses()
@@ -434,7 +431,7 @@ autoinscribe += staff of energy:@w1
     if string.find(god, "Shining") then
       exlude_this = race
     end
-    sendkeys(string.char(6) .. "@corpse&&!!rott&&!!skel&&!!sky&&!!necrop&&!!ugly&&!!vampire&&!!corpse rot&&!!&&!!botono" .. exclude_this .. "\ra\r")
+    sendkeys(string.char(6) .. "@corpse&&!!rott&&!!skel&&!!sky&&!!necrop&&!!ugly&&!!vampire&&!!corpse rot&&!!botono" .. exclude_this .. "\ra\r")
   end
 
   function inventory()
