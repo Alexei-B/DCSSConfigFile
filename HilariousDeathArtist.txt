@@ -391,6 +391,7 @@ ignore += The plant is engulfed
 ignore += You destroy the (bush|fungus|plant)
 ignore += You displace your
 # Uskayaw
+ignore += stomp with the beat
 ignore += pass through a line
 ignore += merge with and destroy
 

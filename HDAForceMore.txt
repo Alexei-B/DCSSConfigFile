@@ -209,7 +209,7 @@ more += The divine light dispels your darkness!
 more += The walls disappear
 more += There is a sealed passage
 more += You are wearing\:
-more += You can now
+more += You can now (?!(stomp to|merge with|pass through))
 more += You cannot afford.*fee
 more += You feel (dopey|clumsy|weak)
 more += You feel a genetic drift
@@ -227,7 +227,7 @@ more += Your guardian golem overheats
 more += your magic stops regenerating
 more += Your scales start
 more += your.*devoured
-more += Your?.*can no longer
+more += Your?.*can no longer (?!(stomp to|merge with|pass through))
 more += Green shoots are pushing up through the earth
 
 # Things getting better
@@ -240,8 +240,8 @@ more += seems mollified
 
 # Ghouls
 : if you.race() == "Ghoul" then
-	stop += smell.*(rott(ing|en)|decay)
-	stop += something tasty in your inventory
+    stop += smell.*(rott(ing|en)|decay)
+    stop += something tasty in your inventory
 : end
 
 ##################
@@ -376,7 +376,7 @@ more += is too large for the net to hold
 # Other
 more += Jiyva alters your body
 : if you.god() == "Xom" then
-	more += god:
+    more += god:
 : end
 
 : if not string.find(you.god(), "Jiyva") then
