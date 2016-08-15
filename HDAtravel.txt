@@ -200,9 +200,9 @@ autoinscribe += staff of energy:@w1
   function should_rest(hp, mp, max_hp, max_mp)
     local you_are_mummy = string.find(you.race(), "Mummy")
     local you_are_deep_dwarf = string.find(you.race(), "Deep Dwarf")
-    local you_worship_pekallas = string.find(you.god(), "Pekallas")
+    local you_worship_pakellas = string.find(you.god(), "Pakellas")
     return (
-         ((mp < (max_mp*0.50) or (max_mp-mp) > 20) and not you_worship_pekallas)
+         ((mp < (max_mp*0.50) or (max_mp-mp) > 20) and not you_worship_pakellas)
       or ((hp < (max_hp*0.80) or (max_hp-hp) > 30) and not you_are_deep_dwarf)
       or (hp < max_hp and you_are_mummy)
       or (mp < max_mp and you_are_mummy and not you_worship_pekallas)
